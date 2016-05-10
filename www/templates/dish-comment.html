@@ -1,0 +1,38 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h2 class="title">Comment</h2>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeCommentModal()">Close</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+
+    <form ng-controller="DishCommentController" id="commentForm" name="commentForm" ng-submit="submitComment()">
+       <div class="list">       
+       	 <label class="item item-input item-select">
+       	    <span class="input-label">Rating</span>
+       	 	<select ng-model="mycomment.rating">
+      	 	   <option ng-repeat="rating in [1,2,3,4,5] track by $index" ng-value="{{rating}}">{{rating}}</option>
+      	 	</select>
+       	 </label>
+
+       	 <label class="item item-input">
+            <span class="input-label">Name</span>
+            <input type="text" ng-model="mycomment.author">      	 	
+       	 </label>
+
+       	 <label class="item item-input item-textarea">
+       	 	<span class="input-label">Comments</span>
+       	 	<input type="text" id="comment" name="comment" ng-model="mycomment.comment">
+       	 </label>
+
+       	 <label class="item">
+       	 	<button class="button button-block button-positive" ng-click="submitComment()">Comment</button>
+       	 </label>
+       </div>
+    </form>
+
+  </ion-content>
+
+</ion-modal-view>
